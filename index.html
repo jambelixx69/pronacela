@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRONACELA | Agroindustria de Cebolla Larga - Aquitania, Boyacá</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts: Montserrat (Headings) & Lato (Body) for Technical/Clean look -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons: FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pronacela: {
+                            green: '#064e3b', // Emerald 900
+                            light: '#10b981', // Emerald 500
+                            soil: '#57534e',  // Stone 600
+                            cream: '#f8fafc', // Slate 50
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Lato', 'sans-serif'],
+                        serif: ['Montserrat', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom Styles for Parallax and specific UI elements */
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=2070&auto=format&fit=crop'); 
+            /* Alternate image focusing on high altitude greenery/mist */
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+        }
+        
+        .fade-in-up {
+            animation: fadeUp 1s ease-out;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .tab-active {
+            background-color: #064e3b;
+            color: white;
+            border-color: #064e3b;
+        }
+
+        .tab-inactive {
+            background-color: transparent;
+            color: #57534e;
+            border-color: #e5e7eb;
+        }
+        
+        .product-card:hover .product-overlay {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="font-sans text-stone-700 bg-slate-50 antialiased">
+
+    <!-- NAVIGATION -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="w-10 h-10 bg-emerald-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                    <i class="fa-solid fa-leaf"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-white font-serif font-bold text-xl tracking-wider group-hover:text-emerald-400 transition">PRONACELA</span>
+                    <span class="text-gray-300 text-xs tracking-widest uppercase">Agroindustria & Paz</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#impacto" class="text-white hover:text-emerald-400 font-medium transition text-sm uppercase tracking-wide">Nosotros</a>
+                <a href="#productos" class="text-white hover:text-emerald-400 font-medium transition text-sm uppercase tracking-wide">Productos</a>
+                <a href="#servicios" class="text-white hover:text-emerald-400 font-medium transition text-sm uppercase tracking-wide">Servicios</a>
+                <a href="#contacto" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2 rounded-full font-bold transition transform hover:scale-105 shadow-lg border border-emerald-500">
+                    Cotizar Ahora
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button onclick="toggleMobileMenu()" class="md:hidden text-white text-2xl">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu (Hidden) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-pronacela-green absolute w-full top-full left-0 py-4 shadow-xl">
+            <div class="flex flex-col space-y-4 px-6">
+                <a href="#impacto" class="text-white hover:text-gray-300" onclick="toggleMobileMenu()">Nosotros</a>
+                <a href="#productos" class="text-white hover:text-gray-300" onclick="toggleMobileMenu()">Productos</a>
+                <a href="#servicios" class="text-white hover:text-gray-300" onclick="toggleMobileMenu()">Servicios</a>
+                <a href="#contacto" class="text-emerald-300 font-bold" onclick="toggleMobileMenu()">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="relative h-screen flex items-center justify-center hero-bg text-center px-4">
+        <div class="relative z-10 max-w-4xl mx-auto fade-in-up">
+            <div class="mb-4 flex justify-center space-x-4">
+                <span class="bg-emerald-600/80 backdrop-blur-sm text-white px-3 py-1 rounded text-xs font-bold tracking-widest uppercase border border-emerald-400">Marca Paissana</span>
+                <span class="bg-blue-600/80 backdrop-blur-sm text-white px-3 py-1 rounded text-xs font-bold tracking-widest uppercase border border-blue-400">Soy Boyacá</span>
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-tight mb-6 drop-shadow-lg">
+                Cultivamos <span class="text-emerald-400">Paz y Sabor</span> <br> en el Corazón de Boyacá
+            </h1>
+            
+            <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto font-light">
+                Líderes en la transformación agroindustrial de <strong class="text-white">Cebolla Larga (Allium Fistulosum)</strong>. 
+                Calidad premium, inocuidad certificada y un modelo social de comercio justo.
+            </p>
+            
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#productos" onclick="switchTab('b2b')" class="bg-white text-emerald-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition shadow-xl border-b-4 border-emerald-900 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-truck-fast"></i> Mayoristas / Exportación
+                </a>
+                <a href="#productos" onclick="switchTab('b2c')" class="bg-emerald-600/30 backdrop-blur-md text-white border border-white px-8 py-4 rounded-full font-bold text-lg hover:bg-emerald-600 transition shadow-xl flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-basket-shopping"></i> Tienda Gourmet
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#impacto" class="text-white text-2xl opacity-70 hover:opacity-100 transition">
+                <i class="fa-solid fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- TRUST BAR / LOGOS -->
+    <section class="bg-white py-8 border-b border-gray-100">
+        <div class="container mx-auto px-6">
+            <p class="text-center text-gray-400 text-xs font-bold uppercase tracking-widest mb-6">Nuestros Aliados & Certificaciones</p>
+            <div class="flex flex-wrap justify-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500 items-center">
+                <!-- Placeholders for Logos described in prompt -->
+                <div class="h-12 flex items-center gap-2 font-bold text-emerald-800 text-xl"><i class="fa-solid fa-certificate"></i> ICA | BPA</div>
+                <div class="h-12 flex items-center gap-2 font-bold text-blue-900 text-xl"><i class="fa-solid fa-dove"></i> PAISSANA</div>
+                <div class="h-12 flex items-center gap-2 font-bold text-red-700 text-xl"><i class="fa-solid fa-location-dot"></i> SOY BOYACÁ</div>
+                <div class="h-12 flex items-center gap-2 font-bold text-green-700 text-xl"><i class="fa-solid fa-leaf"></i> ADR</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IMPACT SECTION (Why Us) -->
+    <section id="impacto" class="py-20 bg-stone-50">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div class="order-2 md:order-1 relative">
+                    <div class="absolute -top-4 -left-4 w-24 h-24 bg-emerald-100 rounded-full z-0"></div>
+                    <img src="https://images.unsplash.com/photo-1595855793393-27dd9938f655?q=80&w=1000&auto=format&fit=crop" alt="Campesino Boyacense" class="relative z-10 rounded-xl shadow-2xl w-full object-cover h-[500px]">
+                    <div class="absolute bottom-8 right-[-20px] bg-white p-6 rounded-lg shadow-xl max-w-xs border-l-4 border-emerald-600 z-20 hidden md:block">
+                        <p class="text-4xl font-bold text-emerald-800 mb-1">2030</p>
+                        <p class="text-sm text-gray-600">Nuestra visión: Ser líderes globales en derivados de cebolla.</p>
+                    </div>
+                </div>
+                
+                <div class="order-1 md:order-2">
+                    <h4 class="text-emerald-600 font-bold uppercase tracking-widest text-sm mb-2">Nuestra Esencia</h4>
+                    <h2 class="text-4xl font-serif font-bold text-stone-800 mb-6 leading-tight">Del Campo a la Mesa con <br><span class="text-emerald-700 underline decoration-emerald-300 decoration-4">Inocuidad Garantizada</span></h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        Fundada en 2013 en Aquitania, PRONACELA no es solo una empresa; es un ecosistema de economía solidaria. Integramos a cientos de familias campesinas para transformar la cebolla larga tradicional en productos de alto valor agregado.
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-check-circle text-emerald-500 mt-1"></i>
+                            <div>
+                                <strong class="text-stone-800">Trazabilidad Total:</strong> Desde la semilla hasta el empaque, controlamos cada etapa bajo normas BPA.
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-check-circle text-emerald-500 mt-1"></i>
+                            <div>
+                                <strong class="text-stone-800">Impacto Social:</strong> Compramos a precios justos, eliminando la volatilidad del mercado fresco para el productor.
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-check-circle text-emerald-500 mt-1"></i>
+                            <div>
+                                <strong class="text-stone-800">Sostenibilidad:</strong> Empaques biodegradables y procesos que respetan el Lago de Tota.
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="#contacto" class="text-emerald-700 font-bold hover:text-emerald-900 border-b-2 border-emerald-700 pb-1">Conocer nuestra historia <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCT SHOWCASE (HYBRID MODEL) -->
+    <section id="productos" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-5xl font-serif font-bold text-stone-800 mb-4">Nuestro Portafolio</h2>
+                <p class="text-gray-500 max-w-xl mx-auto">Selecciona tu perfil para ver los productos adaptados a tus necesidades.</p>
+            </div>
+
+            <!-- TABS CONTROLS -->
+            <div class="flex justify-center mb-12">
+                <div class="bg-gray-100 p-1 rounded-full inline-flex">
+                    <button id="btn-b2b" onclick="switchTab('b2b')" class="px-8 py-3 rounded-full text-sm font-bold uppercase tracking-wide transition-all tab-active">
+                        <i class="fa-solid fa-building mr-2"></i> Mayoristas (Fresco)
+                    </button>
+                    <button id="btn-b2c" onclick="switchTab('b2c')" class="px-8 py-3 rounded-full text-sm font-bold uppercase tracking-wide transition-all tab-inactive">
+                        <i class="fa-solid fa-seedling mr-2"></i> Gourmet (Deshidratados)
+                    </button>
+                </div>
+            </div>
+
+            <!-- CONTENT: B2B / FRESH -->
+            <div id="content-b2b" class="grid grid-cols-1 md:grid-cols-3 gap-8 fade-in-up">
+                <!-- Product 1 -->
+                <div class="group bg-white border border-gray-100 shadow-lg rounded-2xl overflow-hidden hover:shadow-2xl transition">
+                    <div class="h-64 bg-gray-200 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1618898687798-5c49090b8f15?q=80&w=1000&auto=format&fit=crop" alt="Cebolla en Atado" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute top-4 right-4 bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded">EXPORTACIÓN</div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold text-stone-800 mb-2">Cebolla Larga en Atados</h3>
+                        <p class="text-sm text-gray-500 mb-4">Allium Fistulosum - Selección Premium</p>
+                        <p class="text-gray-600 text-sm mb-6">Producto brillado, seleccionado y atado bajo especificaciones estrictas. Ideal para supermercados internacionales.</p>
+                        <div class="border-t pt-4">
+                            <ul class="text-xs text-gray-500 space-y-2 mb-4">
+                                <li><i class="fa-solid fa-box mr-2"></i> Embalaje: Cajas de Cartón</li>
+                                <li><i class="fa-solid fa-scale-balanced mr-2"></i> Peso: Según cliente</li>
+                            </ul>
+                            <button onclick="openModal('Cebolla Atados')" class="w-full bg-stone-800 text-white py-3 rounded-lg font-bold hover:bg-stone-700 transition">Solicitar Ficha Técnica</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="group bg-white border border-gray-100 shadow-lg rounded-2xl overflow-hidden hover:shadow-2xl transition">
+                    <div class="h-64 bg-gray-200 relative overflow-hidden">
+                        <!-- Placeholder for "Rollos" -->
+                        <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?q=80&w=1000&auto=format&fit=crop" alt="Cebolla en Rollo" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute top-4 right-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded">INSTITUCIONAL</div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold text-stone-800 mb-2">Rollos / Pacas (25kg)</h3>
+                        <p class="text-sm text-gray-500 mb-4">Formato Alta Rotación</p>
+                        <p class="text-gray-600 text-sm mb-6">Cebolla arrancada y empacada en costal/malla. Ideal para centrales de abasto y grandes procesos industriales.</p>
+                        <div class="border-t pt-4">
+                             <ul class="text-xs text-gray-500 space-y-2 mb-4">
+                                <li><i class="fa-solid fa-box mr-2"></i> Presentación: 25 KG</li>
+                                <li><i class="fa-solid fa-truck mr-2"></i> Logística: Gran volumen</li>
+                            </ul>
+                            <button onclick="openModal('Rollos 25kg')" class="w-full bg-stone-800 text-white py-3 rounded-lg font-bold hover:bg-stone-700 transition">Cotizar Lote</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="group bg-white border border-gray-100 shadow-lg rounded-2xl overflow-hidden hover:shadow-2xl transition">
+                    <div class="h-64 bg-gray-200 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1627483252504-24ceb84742e6?q=80&w=1000&auto=format&fit=crop" alt="Cebolla en Canastilla" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                         <div class="absolute top-4 right-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded">HORECA</div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold text-stone-800 mb-2">Canastillas (20kg)</h3>
+                        <p class="text-sm text-gray-500 mb-4">Logística Retornable</p>
+                        <p class="text-gray-600 text-sm mb-6">Cebolla extra brillada y organizada en canastillas plásticas. Perfecta para restaurantes y hoteles.</p>
+                        <div class="border-t pt-4">
+                             <ul class="text-xs text-gray-500 space-y-2 mb-4">
+                                <li><i class="fa-solid fa-box mr-2"></i> Presentación: 20 KG</li>
+                                <li><i class="fa-solid fa-rotate mr-2"></i> Sistema: Intercambio</li>
+                            </ul>
+                            <button onclick="openModal('Canastillas 20kg')" class="w-full bg-stone-800 text-white py-3 rounded-lg font-bold hover:bg-stone-700 transition">Contactar Ventas</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTENT: B2C / GOURMET (Hidden by default) -->
+            <div id="content-b2c" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 hidden fade-in-up">
+                
+                <!-- Gourmet Item 1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition flex flex-col h-full border border-gray-100">
+                    <div class="h-48 bg-gray-50 flex items-center justify-center p-4">
+                        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=1000&auto=format&fit=crop" alt="Cebolla en Polvo" class="h-full object-contain mix-blend-multiply">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="mb-2">
+                             <span class="text-xs font-bold text-emerald-600 bg-emerald-100 px-2 py-1 rounded">100% Natural</span>
+                        </div>
+                        <h3 class="font-serif font-bold text-lg mb-1">Cebolla en Polvo</h3>
+                        <p class="text-xs text-gray-500 mb-4">Sabor concentrado. Sin aditivos.</p>
+                        <div class="mt-auto flex items-center justify-between">
+                            <span class="font-bold text-lg">$15.000 COP</span>
+                            <button class="w-10 h-10 bg-emerald-600 text-white rounded-full hover:bg-emerald-700 flex items-center justify-center"><i class="fa-solid fa-cart-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gourmet Item 2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition flex flex-col h-full border border-gray-100">
+                    <div class="h-48 bg-gray-50 flex items-center justify-center p-4">
+                         <img src="https://images.unsplash.com/photo-1627483298606-c56df3d05269?q=80&w=1000&auto=format&fit=crop" alt="Hojuelas" class="h-full object-contain mix-blend-multiply">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                         <div class="mb-2">
+                             <span class="text-xs font-bold text-emerald-600 bg-emerald-100 px-2 py-1 rounded">Textura</span>
+                        </div>
+                        <h3 class="font-serif font-bold text-lg mb-1">Hojuelas Deshidratadas</h3>
+                        <p class="text-xs text-gray-500 mb-4">Perfecto para ensaladas y guisos.</p>
+                        <div class="mt-auto flex items-center justify-between">
+                            <span class="font-bold text-lg">$18.000 COP</span>
+                            <button class="w-10 h-10 bg-emerald-600 text-white rounded-full hover:bg-emerald-700 flex items-center justify-center"><i class="fa-solid fa-cart-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gourmet Item 3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition flex flex-col h-full border border-gray-100">
+                    <div class="h-48 bg-gray-50 flex items-center justify-center p-4">
+                         <img src="https://images.unsplash.com/photo-1599940824399-b87987ceb72a?q=80&w=1000&auto=format&fit=crop" alt="Mix Laurel" class="h-full object-contain mix-blend-multiply">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                         <div class="mb-2">
+                             <span class="text-xs font-bold text-orange-600 bg-orange-100 px-2 py-1 rounded">Mix Carnes</span>
+                        </div>
+                        <h3 class="font-serif font-bold text-lg mb-1">Mezcla Cebolla & Laurel</h3>
+                        <p class="text-xs text-gray-500 mb-4">Laurel de huerta "Asolaurel".</p>
+                        <div class="mt-auto flex items-center justify-between">
+                            <span class="font-bold text-lg">$20.000 COP</span>
+                            <button class="w-10 h-10 bg-emerald-600 text-white rounded-full hover:bg-emerald-700 flex items-center justify-center"><i class="fa-solid fa-cart-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                 <!-- Gourmet Item 4 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition flex flex-col h-full border border-gray-100">
+                    <div class="h-48 bg-gray-50 flex items-center justify-center p-4">
+                         <img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?q=80&w=1000&auto=format&fit=crop" alt="Mix Cilantro" class="h-full object-contain mix-blend-multiply">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                         <div class="mb-2">
+                             <span class="text-xs font-bold text-lime-600 bg-lime-100 px-2 py-1 rounded">Mix Caldos</span>
+                        </div>
+                        <h3 class="font-serif font-bold text-lg mb-1">Mezcla Cebolla & Cilantro</h3>
+                        <p class="text-xs text-gray-500 mb-4">La base esencial de la sopa.</p>
+                        <div class="mt-auto flex items-center justify-between">
+                            <span class="font-bold text-lg">$16.500 COP</span>
+                            <button class="w-10 h-10 bg-emerald-600 text-white rounded-full hover:bg-emerald-700 flex items-center justify-center"><i class="fa-solid fa-cart-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES (Knowledge Transfer) -->
+    <section id="servicios" class="py-20 bg-emerald-900 text-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between mb-16">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h2 class="text-3xl md:text-5xl font-serif font-bold mb-4">Capacidad Instalada de <span class="text-emerald-400">Conocimiento</span></h2>
+                    <p class="text-gray-300 text-lg">No solo vendemos productos, vendemos experiencia. Ofrecemos consultoría especializada para transformar el agro colombiano.</p>
+                </div>
+                <div class="md:w-1/3">
+                    <a href="#contacto" class="inline-block w-full text-center bg-emerald-500 hover:bg-emerald-400 text-white font-bold py-4 px-8 rounded-lg shadow-lg transition">Solicitar Consultoría</a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-emerald-800 p-8 rounded-xl border border-emerald-700 hover:border-emerald-400 transition group">
+                    <div class="w-14 h-14 bg-emerald-900 rounded-lg flex items-center justify-center mb-6 group-hover:bg-emerald-500 transition">
+                        <i class="fa-solid fa-seedling text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">BPA</h3>
+                    <p class="text-gray-400 text-sm mb-4">Buenas Prácticas Agrícolas.</p>
+                    <p class="text-gray-300">Asesoría en manejo de cultivo, registros de campo y normativa ICA para certificación.</p>
+                </div>
+                
+                 <!-- Service 2 -->
+                <div class="bg-emerald-800 p-8 rounded-xl border border-emerald-700 hover:border-emerald-400 transition group">
+                    <div class="w-14 h-14 bg-emerald-900 rounded-lg flex items-center justify-center mb-6 group-hover:bg-emerald-500 transition">
+                        <i class="fa-solid fa-industry text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">BPM</h3>
+                    <p class="text-gray-400 text-sm mb-4">Buenas Prácticas de Manufactura.</p>
+                    <p class="text-gray-300">Diseño de procesos, higiene y manipulación para plantas de transformación.</p>
+                </div>
+
+                 <!-- Service 3 -->
+                <div class="bg-emerald-800 p-8 rounded-xl border border-emerald-700 hover:border-emerald-400 transition group">
+                    <div class="w-14 h-14 bg-emerald-900 rounded-lg flex items-center justify-center mb-6 group-hover:bg-emerald-500 transition">
+                        <i class="fa-solid fa-shield-virus text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">HACCP</h3>
+                    <p class="text-gray-400 text-sm mb-4">Calidad e Inocuidad.</p>
+                    <p class="text-gray-300">Análisis de peligros y puntos de control críticos para garantizar la seguridad alimentaria.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT & FOOTER -->
+    <footer id="contacto" class="bg-stone-900 text-gray-300 pt-20 pb-10">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-gray-800 pb-12">
+                <!-- Brand -->
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-2 mb-6">
+                         <div class="w-8 h-8 bg-emerald-600 rounded-full flex items-center justify-center text-white font-bold shadow-lg">
+                            <i class="fa-solid fa-leaf text-xs"></i>
+                        </div>
+                        <span class="text-white font-serif font-bold text-xl tracking-wider">PRONACELA</span>
+                    </div>
+                    <p class="text-gray-500 mb-6 max-w-sm">
+                        Agroindustria de impacto, paz y sostenibilidad. Consolidando la cadena de valor de la Cebolla Larga en la cuenca del Lago de Tota.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-emerald-600 transition text-white"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-emerald-600 transition text-white"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-emerald-600 transition text-white"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-sm">Navegación</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-emerald-500 transition">Inicio</a></li>
+                        <li><a href="#productos" class="hover:text-emerald-500 transition">Portafolio Fresco</a></li>
+                        <li><a href="#productos" class="hover:text-emerald-500 transition">Tienda Gourmet</a></li>
+                        <li><a href="#servicios" class="hover:text-emerald-500 transition">Consultoría</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-sm">Contacto</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot mt-1 text-emerald-500"></i>
+                            <span>Aquitania, Boyacá, Colombia<br>Cuenca del Lago de Tota</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-emerald-500"></i>
+                            <a href="mailto:presidentepronacela@gmail.com" class="hover:text-white transition">presidentepronacela@gmail.com</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-emerald-500"></i>
+                            <span>+57 315 242 2648</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 text-center text-xs text-gray-600">
+                <p>&copy; 2025 PRONACELA. Todos los derechos reservados. | Estrategia Visión 2030.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Sticky Button -->
+    <a href="https://wa.me/573152422648" target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-500 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:bg-green-600 transition transform hover:scale-110 animate-pulse">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- Modal for Quotes -->
+    <div id="quoteModal" class="fixed inset-0 z-[60] hidden bg-black/80 flex items-center justify-center px-4 backdrop-blur-sm">
+        <div class="bg-white w-full max-w-lg rounded-2xl p-8 relative shadow-2xl">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-red-500 transition">
+                <i class="fa-solid fa-xmark text-2xl"></i>
+            </button>
+            
+            <h3 class="text-2xl font-serif font-bold text-emerald-900 mb-2">Solicitar Cotización</h3>
+            <p class="text-gray-500 mb-6 text-sm">Interesado en: <span id="modal-product-name" class="font-bold text-stone-800">General</span></p>
+            
+            <form class="space-y-4" onsubmit="event.preventDefault(); alert('Gracias. Un asesor comercial de PRONACELA le contactará en breve.'); closeModal();">
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Empresa / Razón Social</label>
+                    <input type="text" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-emerald-500 focus:outline-none transition">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                     <div>
+                        <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Contacto</label>
+                        <input type="text" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-emerald-500 focus:outline-none transition">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Teléfono</label>
+                        <input type="tel" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-emerald-500 focus:outline-none transition">
+                    </div>
+                </div>
+                 <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Volumen Estimado (Kg)</label>
+                    <input type="number" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-emerald-500 focus:outline-none transition">
+                </div>
+                
+                <button type="submit" class="w-full bg-emerald-800 text-white font-bold py-3 rounded-lg hover:bg-emerald-900 transition shadow-lg mt-2">
+                    Enviar Solicitud
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-stone-900/90', 'backdrop-blur-md', 'shadow-md', 'py-2');
+                navbar.classList.remove('bg-transparent', 'py-4');
+            } else {
+                navbar.classList.remove('bg-stone-900/90', 'backdrop-blur-md', 'shadow-md', 'py-2');
+                navbar.classList.add('bg-transparent', 'py-4');
+            }
+        });
+
+        // Tab Switching Logic
+        function switchTab(tab) {
+            const btnB2B = document.getElementById('btn-b2b');
+            const btnB2C = document.getElementById('btn-b2c');
+            const contentB2B = document.getElementById('content-b2b');
+            const contentB2C = document.getElementById('content-b2c');
+
+            if (tab === 'b2b') {
+                // Activate B2B
+                btnB2B.classList.add('tab-active');
+                btnB2B.classList.remove('tab-inactive');
+                btnB2C.classList.add('tab-inactive');
+                btnB2C.classList.remove('tab-active');
+                
+                contentB2B.classList.remove('hidden');
+                contentB2C.classList.add('hidden');
+            } else {
+                // Activate B2C
+                btnB2C.classList.add('tab-active');
+                btnB2C.classList.remove('tab-inactive');
+                btnB2B.classList.add('tab-inactive');
+                btnB2B.classList.remove('tab-active');
+                
+                contentB2C.classList.remove('hidden');
+                contentB2B.classList.add('hidden');
+            }
+        }
+
+        // Mobile Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Modal Logic
+        function openModal(productName) {
+            document.getElementById('modal-product-name').innerText = productName;
+            document.getElementById('quoteModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('quoteModal').classList.add('hidden');
+        }
+
+        // Close modal on outside click
+        window.onclick = function(event) {
+            const modal = document.getElementById('quoteModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
